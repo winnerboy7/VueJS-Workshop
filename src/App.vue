@@ -1,22 +1,22 @@
 <template>
   <div>
-    <movie-list />
-    <!-- <day1 />
-    <day2 /> -->
+    <section class="section">
+      <div class="container">
+        <navbar />
+        <hr>
+        <router-view />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import 'bulma/css/bulma.min.css'
-import MovieList from './components/MovieList'
-// import Day1 from './components/Day1'
-// import Day2 from './components/Day2'
+import Navbar from './components/Navbar'
 
 export default {
   components: {
-    'movie-list': MovieList,
-    // 'day1': Day1,
-    // 'day2': Day2
-  },
+    navbar: Navbar
+  }, 
 }
 </script>
