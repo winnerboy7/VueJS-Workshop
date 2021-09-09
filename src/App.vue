@@ -1,41 +1,22 @@
 <template>
   <div>
-    <p v-if="active">Active</p>
-    <p v-else>Not Active</p>
-    <p v-for="(each, i) in numbers" :key="i">{{ each }}</p>
-    <p>{{ price }}</p>
-    <button @click="handleClick('Hi')">Click</button>
-    <hello />
-    <global />
+    <movie-list />
+    <!-- <day1 />
+    <day2 /> -->
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import 'bulma/css/bulma.min.css'
+import MovieList from './components/MovieList'
+// import Day1 from './components/Day1'
+// import Day2 from './components/Day2'
+
 export default {
   components: {
-    'hello': Hello
+    'movie-list': MovieList,
+    // 'day1': Day1,
+    // 'day2': Day2
   },
-  data() {
-    return {
-      active: true,
-      numbers: [1,2,3,4,5],
-      price: 100
-    }
-  },
-
-  computed: {    
-    priceIncludeVat() {
-      return this.price * 1.07      
-    }
-  },
-
-  methods: {
-    handleClick(params, e) {
-      console.log(params, e)
-      console.log('Clicked')
-      this.price = this.price*5
-    }
-  }
 }
 </script>
