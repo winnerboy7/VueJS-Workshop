@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p v-if="active">Active</p>
+    <p v-else>Not Active</p>
+    <p v-for="(each, i) in numbers" :key="i">{{ each }}</p>
+    <p>{{ price }}</p>
+    <button @click="handleClick('Hi')">Click</button>
+    <hello />
+    <global />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Hello from './components/Hello'
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    'hello': Hello
+  },
+  data() {
+    return {
+      active: true,
+      numbers: [1,2,3,4,5],
+      price: 100
+    }
+  },
+
+  computed: {    
+    priceIncludeVat() {
+      return this.price * 1.07      
+    }
+  },
+
+  methods: {
+    handleClick(params, e) {
+      console.log(params, e)
+      console.log('Clicked')
+      this.price = this.price*5
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
