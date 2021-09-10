@@ -1,7 +1,7 @@
 <template>
   <div>
     Home
-    <hr>
-    MEVN Training...
+    <hr />
+    MEVN Project Training...
   </div>
 </template>
